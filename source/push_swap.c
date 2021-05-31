@@ -28,16 +28,10 @@ int		main(int argc, char **argv)
 
 
 	
-	// print_stack(stk.a, "A: ");
-	// print_stack(stk.b, "B: ");
-	ft_lstquick_sort(&stk.a, stk.lena);
 
-
-	// printf("elem = %d\n", ft_lstpop_find(&stk.a, 3)->x);
-	// print_stack(stk.a, "A: ");
-
-	// algo1(&stk);
-
+	
+	// ft_lstquick_sort(&stk.a, stk.lena);
+	alg2(&stk, stk.lena);
 	print_stack(stk.a, "A: ");
 	print_stack(stk.b, "B: ");
 	if (ft_lstsort(stk.a, 1))

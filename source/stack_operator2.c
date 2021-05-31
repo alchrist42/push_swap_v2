@@ -13,6 +13,7 @@ void	ft_stack_rotate(t_list **lst, char *s)
 	if (s && OUT)
 		ft_putendl_fd(s, 1);
 }
+
 /*
 **	@brief	push first elements to the end for both stack
 **	

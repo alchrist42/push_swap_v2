@@ -7,7 +7,7 @@ SRCS_FILES	= 	push_swap.c \
 				stack_operator1.c \
 				stack_operator2.c \
 				quick_sort.c \
-				algo.c \
+				algoritms.c \
 
 SRCS_B_FILES	=	
 

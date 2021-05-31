@@ -11,6 +11,8 @@
 # define DEBUG 1
 # define OUT 1
 
+# define SA "sa"
+# define SB "sb"
 # define RA "ra"
 # define RB "rb"
 # define RRA "rra"
@@ -54,7 +56,10 @@ void	ft_lstquick_sort(t_list **lst, int n);
 void	ft_stack_move_to_right(t_list **lst, t_list *midle, int *mid, int cnt);
 void	ft_stack_move_to_left(t_list **lst, t_list *midle, int *mid, int cnt);
 
-// algo
-void	algo1(t_stack *stk);
+// algoritms
+void	alg1(t_stack *stk, int len);
+void	alg2(t_stack *stk, int len);
+void	alg2_rec(t_stack *stk, int len, int group_size);
+int		alg2_to_push(int len, int gs);
 
 #endif
