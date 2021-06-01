@@ -30,77 +30,95 @@ void	alg1(t_stack *stk, int len)
 // sort by 2 and merge
 void	alg2(t_stack *stk, int len)
 {
-	t_list  *elem;
-	t_list	*next;
 	int	i;
 
-	i = 1;
-	elem = stk->a;
+	i = (len % 4 == 3);
+	if (i)
+		ft_stack_push(&stk->a, &stk->b, PB);
 	while (i < len)
 	{
-		next = elem->next->next;
-		if (elem->x > elem->next->x)
+		// printf("len = %d, i = %d\n",len,  i);
+		if (len - i >= 4)
+		{
+			ft_stack_push(&stk->a, &stk->b, PB);
+			ft_stack_push(&stk->a, &stk->b, PB);
+			if (stk->b->x < stk->b->next->x && stk->a->x > stk->a->next->x)
+				ft_stack_dswap(&stk->a, &stk->b);
+			else if (stk->b->x < stk->b->next->x)
+				ft_stack_swap(&stk->b, SB);
+			i += 2;
+		}
+		if (len - i > 1 && stk->a->x > stk->a->next->x)
 			ft_stack_swap(&stk->a, SA);
-		ft_stack_rotate(&stk->a, RA); // todo push half to B
-		ft_stack_rotate(&stk->a, RA);
-		elem = next;
-		i += 2;
+		if (len - i > 2)
+		{
+			ft_stack_rotate(&stk->a, RA);
+			ft_stack_rotate(&stk->a, RA);
+		}
+		// else if (len - i == 1 && len > 4)
+		// 	ft_stack_rotate(&stk->a, RA);
+		i += 2;	
 	}
-	if (len % 2)
-		ft_stack_rotate(&stk->a, RA);
-	i = 0;
-	while (i++ < alg2_to_push(len, 2))
-		ft_stack_push(&stk->a, &stk->b, PB);
-	if (len % 2)
-		ft_stack_rev_rotate(&stk->a, RA);
+		
+		
+	// 	next = elem->next->next;
+	// 	if (i++ < alg2_to_push(len, 2))
+	// 		ft_stack_push(&stk->a, &stk->b, PB);
+	// 	if (i++ < alg2_to_push(len, 2))
+	// 	{
+	// 		ft_stack_push(&stk->a, &stk->b, PB);
+	// 		if (elem->x > elem->next->x)
+	// 			ft_stack_swap(&stk->a, SB);
+	// 	}
+	// 	else
+	// 	{
+	// 		if (elem->x > elem->next->x)
+	// 			ft_stack_swap(&stk->a, SB);
+	// 		ft_stack_rotate(&stk->a, RA); // todo push half to B
+	// 		ft_stack_rotate(&stk->a, RA);
+	// 	elem = next;
+	// }
+	// print_stack(stk->a, "A: ");
+	// print_stack(stk->b, "B: ");
 	
-	alg2_rec(stk, len, 2);
+	alg2_rec(stk, stk->lena, 2);
 
 }
 
 int	alg2_to_push(int len, int gs)
 {
-	printf("npush len=%d, gs=%d\n", len, gs);
+	// printf("npush len=%d, gs=%d\n", len, gs);
 	return ((len / (2 * gs)) * gs + (len % gs) * ((len / gs) % 2));
 }
 
 void	alg2_rec(t_stack *stk, int len, int group_size)
 {
-	// t_list  *elem;
-	// t_list	*next;
-	// int		total_group;
-	// int		current_group;
 	int	a_gr;
 	int	b_gr;
 	int	full_grooups;
 
-	if (!stk->b)
+	if (group_size >= len)
 		return ;
 	
-	printf("___\n");
-	print_stack(stk->a, "A: ");
-	print_stack(stk->b, "B: ");
+	// printf("___\n");
 
 	full_grooups = len / (group_size * 2) + 1;
 	while (full_grooups--)
 	{
-		// break ;
-		
-		print_stack(stk->a, "A:() ");
-		print_stack(stk->b, "B:() ");
+		// print_stack(stk->a, "A:() ");
+		// print_stack(stk->b, "B:() ");
 		a_gr = group_size;
 		b_gr = group_size;
 		if (!full_grooups)
-		{
-			// a_gr = (len % (group_size );
 			b_gr = (len % group_size) * ((len / group_size) % 2);
-		}
-		printf("len=%d, gs=%d, ag=%d, bg=%d\n", len, group_size, a_gr, b_gr);
+		if (!b_gr)
+			a_gr = (len % (group_size * 2));
+		// printf("len=%d, gs=%d, ag=%d, bg=%d\n", len, group_size, a_gr, b_gr);
 		while (a_gr || b_gr)
 		{
 			if (a_gr && (!stk->b || !b_gr || ft_lstlast(stk->a)->x > stk->b->x))
 			{
-				ft_stack_rev_rotate(&stk->a, RA);
+				ft_stack_rev_rotate(&stk->a, RRA);
 				a_gr--;
 			}
 			else
@@ -108,13 +126,20 @@ void	alg2_rec(t_stack *stk, int len, int group_size)
 				ft_stack_push(&stk->b, &stk->a, PA);
 				b_gr--;
 			}
-			
 		}
-		
 	}
+	
 	int i;
+	i = 0;
+	// printf("ostatok_before. to down\n");
+	while (i++ < len % (group_size * 2) && !(len / (group_size * 2) % 2) && group_size * 2 < len)
+		ft_stack_rotate(&stk->a, RA);
 	i = 0;
 	while (i++ < alg2_to_push(len, group_size * 2))
 		ft_stack_push(&stk->a, &stk->b, PB);
+	i = 0;
+	// printf("ostatok_afrer\n");
+	while (i++ < len % (group_size * 2) && !(len / (group_size * 2) % 2) && group_size * 2 < len)
+		ft_stack_rev_rotate(&stk->a, RRA);
 	alg2_rec(stk, len, group_size * 2);
 }
