@@ -3,8 +3,8 @@
 void	parcing_args(int argc, char **argv, t_stack *stk)
 {
 	long long	x;
-	int 		i;
-	
+	int			i;
+
 	i = argc;
 	if (argc == 2)
 	{
@@ -13,7 +13,7 @@ void	parcing_args(int argc, char **argv, t_stack *stk)
 	}
 	stk->lena = i - (argc != 2);
 	stk->maxa = INT_MIN;
-	while(--i + (argc == 2))
+	while (--i + (argc == 2))
 	{
 		if (ft_atoi_long(argv[i], &x) || ft_lstfind(stk->a, x))
 			ft_raise_error("Not integer in args or double\n");

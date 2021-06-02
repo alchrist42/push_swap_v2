@@ -1,5 +1,11 @@
 #include "push_swap.h"
 
+/*
+**	@brief	sorts list recursive using quick sort
+**	
+**	@param	lst		pointer to lst
+**	@param	n		DOC
+*/
 void	ft_lstquick_sort(t_list **lst, int n)
 {
 	t_list	*midle;
@@ -29,7 +35,6 @@ void	ft_stack_move_to_right(t_list **lst, t_list *midle, int *mid, int cnt)
 
 	curr = *lst;
 	prev = curr;
-	
 	while (cnt--)
 	{
 		next = curr->next;
@@ -55,7 +60,7 @@ void	ft_stack_move_to_left(t_list **lst, t_list *midle, int *mid, int cnt)
 	t_list	*curr;
 	t_list	*prev;
 	t_list	*next;
-	
+
 	curr = midle->next;
 	prev = midle;
 	while (cnt--)

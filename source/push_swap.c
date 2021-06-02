@@ -1,10 +1,14 @@
 #include "push_swap.h"
 
-// ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_m $ARG
-// ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
-// python3 pyviz.py `ruby -e "puts (1..20).to_a.shuffle.join(' ')"`
-
-int		main(int argc, char **argv)
+/*
+**	@brief	commands for test:
+**	ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`;
+**	./push_swap $ARG | ./checker $ARG
+**	@param	argc		
+**	@param	argv		
+**	@return	int	
+*/
+int	main(int argc, char **argv)
 {
 	t_stack	stk;
 
@@ -14,14 +18,8 @@ int		main(int argc, char **argv)
 	if (!ft_lstsort(stk.a, 1))
 		return (0);
 	if (stk.lena <= 5)
-		alg_small(&stk, stk.lena);
+		alg2_small(&stk, stk.lena);
 	else
 		alg2(&stk, stk.lena);
-
-	// if (ft_lstsort(stk.a, 1))
-	// 	ft_putstr_fd("KO\n", 1);
-	// else
-	// 	ft_putstr_fd("OK\n", 1);
-
 	return (0);
 }

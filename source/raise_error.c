@@ -21,7 +21,6 @@ void	ft_raise_error(char *s)
 */
 void	print_stack(t_list *lst, char *s)
 {
-	
 	if (DEBUG)
 		ft_putstr_fd(s, 1);
 	while (lst)
