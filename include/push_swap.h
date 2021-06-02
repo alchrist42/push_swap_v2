@@ -61,5 +61,6 @@ void	alg1(t_stack *stk, int len);
 void	alg2(t_stack *stk, int len);
 void	alg2_rec(t_stack *stk, int len, int group_size);
 int		alg2_to_push(int len, int gs);
+void	alg_small(t_stack *stk, int len);
 
 #endif
