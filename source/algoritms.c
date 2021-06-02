@@ -59,28 +59,7 @@ void	alg2(t_stack *stk, int len)
 		// 	ft_stack_rotate(&stk->a, RA);
 		i += 2;	
 	}
-		
-		
-	// 	next = elem->next->next;
-	// 	if (i++ < alg2_to_push(len, 2))
-	// 		ft_stack_push(&stk->a, &stk->b, PB);
-	// 	if (i++ < alg2_to_push(len, 2))
-	// 	{
-	// 		ft_stack_push(&stk->a, &stk->b, PB);
-	// 		if (elem->x > elem->next->x)
-	// 			ft_stack_swap(&stk->a, SB);
-	// 	}
-	// 	else
-	// 	{
-	// 		if (elem->x > elem->next->x)
-	// 			ft_stack_swap(&stk->a, SB);
-	// 		ft_stack_rotate(&stk->a, RA); // todo push half to B
-	// 		ft_stack_rotate(&stk->a, RA);
-	// 	elem = next;
-	// }
-	// print_stack(stk->a, "A: ");
-	// print_stack(stk->b, "B: ");
-	
+			
 	alg2_rec(stk, stk->lena, 2);
 
 }
@@ -133,13 +112,22 @@ void	alg2_rec(t_stack *stk, int len, int group_size)
 	i = 0;
 	// printf("ostatok_before. to down\n");
 	while (i++ < len % (group_size * 2) && !(len / (group_size * 2) % 2) && group_size * 2 < len)
+	{
 		ft_stack_rotate(&stk->a, RA);
+		// printf("test %d\n", group_size);
+	}
 	i = 0;
 	while (i++ < alg2_to_push(len, group_size * 2))
+	{
 		ft_stack_push(&stk->a, &stk->b, PB);
+		
+	}
 	i = 0;
 	// printf("ostatok_afrer\n");
 	while (i++ < len % (group_size * 2) && !(len / (group_size * 2) % 2) && group_size * 2 < len)
+	{
 		ft_stack_rev_rotate(&stk->a, RRA);
+		// printf("     test\n");
+	}
 	alg2_rec(stk, len, group_size * 2);
 }

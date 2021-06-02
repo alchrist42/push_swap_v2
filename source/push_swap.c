@@ -20,10 +20,10 @@ int		main(int argc, char **argv)
 
 	alg2(&stk, stk.lena);
 
-	// if (ft_lstsort(stk.a, 1))
-	// 	ft_putstr_fd("KO\n", 1);
-	// else
-	// 	ft_putstr_fd("OK\n", 1);
+	if (ft_lstsort(stk.a, 1))
+		ft_putstr_fd("KO\n", 1);
+	else
+		ft_putstr_fd("OK\n", 1);
 
 	
 }
