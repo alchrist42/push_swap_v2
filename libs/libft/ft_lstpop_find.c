@@ -14,14 +14,13 @@ t_list	*ft_lstpop_find(t_list **lst, int x)
 
 	elem = NULL;
 	curr = *lst;
-	if (curr && curr->x == x) //first element
+	if (curr && curr->x == x)
 	{
 		elem = curr;
 		*lst = elem->next;
 		elem->next = NULL;
 		return (elem);
 	}
-
 	while (curr && curr->next)
 	{
 		if (curr->next->x == x)
@@ -29,7 +28,7 @@ t_list	*ft_lstpop_find(t_list **lst, int x)
 			elem = curr->next;
 			curr->next = curr->next->next;
 			elem->next = NULL;
-			break;
+			break ;
 		}
 		curr = curr->next;
 	}

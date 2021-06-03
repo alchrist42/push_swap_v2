@@ -9,24 +9,27 @@ SRCS_FILES	= 	push_swap.c \
 				quick_sort.c \
 				algoritms.c \
 
-SRCS_B_FILES	=	
+SRCS_B_F	=	checker.c \
+				parcing.c \
+				raise_error.c \
+				stack_operator1.c \
+				stack_operator2.c \
+				gnl/get_next_line.c 
 
 SRCS_FOLDER	=	source/
 SRCS_B_FLD	=	source_bonus/
 HEADER		=	include/push_swap.h
 
 SRCS		= 	$(addprefix $(SRCS_FOLDER),$(SRCS_FILES))
-SRCS_B		=	$(addprefix $(SRCS_B_FLD),$(SRCS_B_FILES))
+SRCS_B		=	$(addprefix $(SRCS_B_FLD),$(SRCS_B_F))
 OBJS		=	$(patsubst %.c,%.o,$(SRCS))
 OBJS_B		=	$(patsubst %.c,%.o,$(SRCS_B))
 
-INCLUDE		=	-I./include -I./libs/libft/ 
+INCLUDE		=	-I./include -I./libs/libft/
 
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -MMD
 RM			=	rm -f
-
-LIBC		=	ar rcs
 
 LIB = ./libs/libft/libft.a
 
@@ -43,7 +46,7 @@ $(NAME):	$(OBJS)
 
 $(NAME_B):	$(OBJS_B)
 			$(MAKE) -C $(dir $(LIB))
-			$(CC) $(INCLUDE)) $(LIB) -o $(NAME_B) $(OBJS_B)
+			$(CC) $(INCLUDE) $(LIB) -o $(NAME_B) $(OBJS_B)
 
 clean:
 			$(RM) $(OBJS) $(OBJS:.o=.d)
