@@ -34,7 +34,7 @@ void	alg_wheel(t_stack *stk, int len)
 	ft_lstquick_sort(&stk->sorted, len);
 	find_quartiles(stk, len);
 	move_to_b(stk, len);
-	
+	move_back_from_b(stk, len);
 }
 
 /*
@@ -93,4 +93,9 @@ void	move_to_b(t_stack *stk, int len)
 			ft_stack_rotate(&stk->b, RB);
 		}
 	}
+}
+
+void	move_back_from_b(t_stack *stk, int len)
+{
+
 }

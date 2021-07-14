@@ -75,5 +75,6 @@ void	alg2_small(t_stack *stk, int len);
 void	alg_wheel(t_stack *stk, int len);
 void	find_quartiles(t_stack *stk, int len);
 void	move_to_b(t_stack *stk, int len);
+void	move_back_from_b(t_stack *stk, int len);
 
 #endif
