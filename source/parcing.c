@@ -9,6 +9,8 @@ void	parcing_args(int argc, char **argv, t_stack *stk)
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
+		if (!argv)
+			ft_raise_error("NOT ALOLOCATE\n");
 		i = ft_split_len(argv);
 	}
 	stk->lena = i - (argc != 2);
@@ -18,6 +20,7 @@ void	parcing_args(int argc, char **argv, t_stack *stk)
 		if (ft_atoi_long(argv[i], &x) || ft_lstfind(stk->a, x))
 			ft_raise_error("Not integer in args or double\n");
 		ft_lstadd_front(&stk->a, ft_lstnew(x));
+		ft_lstadd_front(&stk->sorted, ft_lstnew(x));
 		if (stk->a->x > stk->maxa)
 			stk->maxa = stk->a->x;
 	}

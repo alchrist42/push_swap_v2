@@ -7,7 +7,8 @@ SRCS_FILES	= 	push_swap.c \
 				stack_operator1.c \
 				stack_operator2.c \
 				quick_sort.c \
-				algoritms.c \
+				algoritm_merge.c \
+				algoritm_wheel.c \
 
 SRCS_B_F	=	checker.c \
 				parcing.c \

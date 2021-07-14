@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (stk.lena <= 5)
 		alg2_small(&stk, stk.lena);
+	else if (stk.lena < 2000)
+		alg_wheel(&stk, stk.lena);
 	else
 		alg2(&stk, stk.lena);
 	return (0);
