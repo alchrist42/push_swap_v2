@@ -5,7 +5,6 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include "libft.h"
-// # include <stdio.h> // del
 
 # define DEBUG 0
 # define OUT 1
