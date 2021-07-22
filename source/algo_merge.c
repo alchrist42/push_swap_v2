@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	alg2(t_stack *stk, int len)
+void	alg2_merge(t_stack *stk, int len)
 {
 	if (len % 4 == 3)
 		ft_stack_push(&stk->a, &stk->b, PB);
@@ -26,10 +26,10 @@ void	alg2(t_stack *stk, int len)
 		}
 		len -= 2;
 	}
-	alg2_merge(stk, stk->lena, 2);
+	alg2_merge_blocks(stk, stk->lena, 2);
 }
 
-void	alg2_merge(t_stack *stk, int len, int group_size)
+void	alg2_merge_blocks(t_stack *stk, int len, int group_size)
 {
 	int	a_gr;
 	int	b_gr;
@@ -71,7 +71,7 @@ void	alg2_push_to_b(t_stack *stk, int len, int gs)
 	i = 0;
 	while (i++ < len % gs && !(len / gs % 2) && gs < len)
 		ft_stack_rev_rotate(&stk->a, RRA);
-	alg2_merge(stk, len, gs);
+	alg2_merge_blocks(stk, len, gs);
 }
 
 void	alg2_small(t_stack *stk, int len)
@@ -96,5 +96,5 @@ void	alg2_small(t_stack *stk, int len)
 		ft_stack_swap(&stk->a, SA);
 	if (len <= 3)
 		return ;
-	alg2_merge(stk, len, 3);
+	alg2_merge_blocks(stk, len, 3);
 }

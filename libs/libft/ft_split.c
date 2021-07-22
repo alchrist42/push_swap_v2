@@ -9,11 +9,9 @@
 */
 static size_t	ft_count(char *s, char c)
 {
-	size_t	i;
 	size_t	cnt;
 
 	cnt = 0;
-	i = 0;
 	while (*s)
 	{
 		if (*s != c && (*(s + 1) == c || !*(s + 1)))

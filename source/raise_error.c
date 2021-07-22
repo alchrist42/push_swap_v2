@@ -32,3 +32,10 @@ void	print_stack(t_list *lst, char *s)
 	}
 	ft_putstr_fd("\n", 1);
 }
+
+int	ft_maxint(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}

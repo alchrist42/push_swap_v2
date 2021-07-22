@@ -1,7 +1,5 @@
 #include "checker.h"
 
-#include <stdio.h> // todo del
-
 void	parcing_args(int argc, char **argv, t_stack *stk)
 {
 	long long	x;
@@ -40,9 +38,7 @@ void	parcing_instructions(t_stack *stk)
 	res = 1;
 	while (res)
 	{
-		
 		res = get_next_line(0, &line);
-		printf("new line = %d: %s\n", res, line);
 		if (res < 0 || (res == 0 && ft_strlen(line)))
 			ft_raise_error("gnl exit incorrect\n");
 		if (res)

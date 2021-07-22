@@ -25,7 +25,7 @@ OBJS_B		=	$(patsubst %.c,%.o,$(SRCS_B))
 
 
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra
 RM			=	rm -f
 
 LIBC		=	ar rcs
