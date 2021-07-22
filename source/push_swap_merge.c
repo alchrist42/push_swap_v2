@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 		alg2_small(&stk, stk.lena);
 	else
 		alg2_merge(&stk, stk.lena);
+	ft_lstclear(&stk.a);
 	return (0);
 }

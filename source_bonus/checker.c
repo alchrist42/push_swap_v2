@@ -19,5 +19,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("KO\n", 1);
 	else
 		ft_putstr_fd("OK\n", 1);
+	ft_lstclear(&stk.a);
+	ft_lstclear(&stk.b);
 	return (0);
 }

@@ -6,6 +6,7 @@ int	main(int argc, char **argv)
 
 	stk.a = NULL;
 	stk.b = NULL;
+	stk.sorted = NULL;
 	parcing_args(argc, argv, &stk);
 	if (!ft_lstsort(stk.a, 1))
 		return (0);
@@ -13,5 +14,7 @@ int	main(int argc, char **argv)
 		alg_wheel(&stk, stk.lena);
 	else
 		alg2_merge(&stk, stk.lena);
+	ft_lstclear(&stk.a);
+	ft_lstclear(&stk.sorted);
 	return (0);
 }
