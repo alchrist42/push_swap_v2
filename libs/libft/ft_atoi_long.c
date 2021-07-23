@@ -35,7 +35,7 @@ long long	ft_atoi_long(const char *str, long long *x)
 	while (*str && ft_isdigit(*str))
 	{
 		new_x = new_x * 10 - (*str++ - '0');
-		if (new_x < INT_MIN + (minus == 1))
+		if (new_x < INT_MIN + (minus != 1))
 			return (-1);
 	}
 	*x = new_x * minus;
