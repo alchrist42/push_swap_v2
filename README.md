@@ -8,4 +8,7 @@ Main idea from  [VBrazhnik](https://github.com/VBrazhnik/Push_swap/wiki/Algorith
 * sorintg >2000 elements using merge_sort, extremely faster than the main algoritm.
 
 
-[Subject](https://github.com/alchrist42/push_swap_v2/blob/master/subject.pdf) (task description) 
+#### Short task description
+
+*We get the "stack a" from integers via arguments. Need to sort it, using only an additional "stack b" and a few special commands, some of which are: push_b, rotate, reverse_rotate, swap_first_two.*
+
